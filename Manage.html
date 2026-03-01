@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Manage My Delivery — Rise 'n Shine</title>
+  <link href="https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Lora:ital,wght@0,400;0,600;1,400;1,600&family=Dancing+Script:wght@600;700&family=Oswald:wght@400;500&display=swap" rel="stylesheet"/>
+  <style>
+    :root {
+      --paper:     #faf6ee;
+      --paper-dk:  #f0e9d8;
+      --paper-dkr: #e4d9c3;
+      --red:       #c0392b;
+      --blue:      #2c5f8a;
+      --blue-pale: #ddeaf5;
+      --gold:      #c9972a;
+      --gold-lt:   #e4b84a;
+      --brown:     #5c3d1e;
+      --brown-lt:  #8b5e34;
+      --ink:       #1e1a14;
+      --ink-mid:   #4a3f30;
+      --ink-lt:    #8a7a65;
+      --white:     #fffef9;
+      --display: 'Abril Fatface', Georgia, serif;
+      --script:  'Dancing Script', cursive;
+      --body:    'Lora', Georgia, serif;
+      --label:   'Oswald', sans-serif;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: var(--body);
+      background-color: var(--paper);
+      color: var(--ink);
+      min-height: 100vh;
+    }
+
+    body::before {
+      content: '';
+      position: fixed; inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)' opacity='0.035'/%3E%3C/svg%3E");
+      pointer-events: none;
+      z-index: 1000;
+    }
+
+    a { color: inherit; text-decoration: none; }
+
+    /* NAV */
+    nav {
+      background: var(--red);
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 0 60px;
+      border-bottom: 4px solid var(--brown);
+      box-shadow: 0 3px 12px rgba(0,0,0,0.18);
+    }
+    .nav-logo-wrap {
+      display: flex; align-items: center; gap: 14px;
+      padding: 14px 0;
+    }
+    .nav-logo-text {
+      font-family: var(--display);
+      font-size: 1.4rem;
+      color: var(--white);
+    }
+    .nav-logo-sub {
+      font-family: var(--script);
+      font-size: 0.78rem;
+      color: rgba(255,254,249,0.7);
+      display: block;
+      margin-top: -2px;
+    }
+    .nav-back {
+      font-family: var(--label);
+      font-size: 0.75rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: rgba(255,254,249,0.75);
+      transition: color 0.2s;
+    }
+    .nav-back:hover { color: var(--white); }
+
+    /* PAGE */
+    .page-wrap {
+      max-width: 780px;
+      margin: 0 auto;
+      padding: 80px 40px;
+    }
+
+    .page-opener {
+      font-family: var(--script);
+      font-size: 1.6rem;
+      color: var(--red);
+      display: block;
+      margin-bottom: 8px;
+    }
+    .page-headline {
+      font-family: var(--display);
+      font-size: 2.6rem;
+      color: var(--ink);
+      line-height: 1.05;
+      margin-bottom: 16px;
+    }
+    .page-sub {
+      font-size: 0.98rem;
+      font-style: italic;
+      color: var(--ink-lt);
+      line-height: 1.75;
+      margin-bottom: 48px;
+      max-width: 560px;
+    }
+
+    /* REQUEST TYPE CARDS */
+    .request-types {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+      margin-bottom: 40px;
+    }
+    .request-type {
+      border: 2px solid var(--paper-dkr);
+      background: var(--white);
+      padding: 24px 20px;
+      cursor: pointer;
+      text-align: center;
+      transition: border-color 0.2s, transform 0.15s;
+      position: relative;
+    }
+    .request-type:hover { transform: translateY(-3px); border-color: var(--gold); }
+    .request-type.selected {
+      border-color: var(--red);
+      background: var(--paper-dk);
+    }
+    .request-type.selected::before {
+      content: '';
+      position: absolute;
+      top: -1px; left: -1px; right: -1px;
+      height: 4px;
+      background: var(--red);
+    }
+    .request-type-icon { font-size: 1.8rem; margin-bottom: 10px; display: block; }
+    .request-type-name {
+      font-family: var(--display);
+      font-size: 0.95rem;
+      color: var(--ink);
+      margin-bottom: 4px;
+    }
+    .request-type-desc {
+      font-size: 0.75rem;
+      font-style: italic;
+      color: var(--ink-lt);
+    }
+
+    /* FORM */
+    .form-group { margin-bottom: 24px; }
+    .form-label {
+      font-family: var(--label);
+      font-size: 0.68rem;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--ink-mid);
+      display: block;
+      margin-bottom: 8px;
+    }
+    .form-input, .form-select, .form-textarea {
+      width: 100%;
+      background: var(--white);
+      border: 2px solid var(--paper-dkr);
+      font-family: var(--body);
+      font-size: 0.95rem;
+      padding: 14px 18px;
+      color: var(--ink);
+      font-style: italic;
+      outline: none;
+      transition: border-color 0.2s;
+      -webkit-appearance: none;
+    }
+    .form-input:focus, .form-select:focus, .form-textarea:focus { border-color: var(--red); }
+    .form-textarea { resize: vertical; min-height: 110px; }
+    .form-select { cursor: pointer; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%238a7a65' stroke-width='1.5' fill='none'/%3E%3C/svg%3E"); background-repeat: no-repeat; background-position: right 16px center; padding-right: 40px; }
+
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+
+    .form-divider {
+      display: flex; align-items: center; gap: 16px;
+      margin: 32px 0;
+    }
+    .form-divider-line { flex: 1; height: 1px; background: var(--paper-dkr); }
+    .form-divider-text {
+      font-family: var(--script);
+      font-size: 1rem;
+      color: var(--gold);
+    }
+
+    .btn-submit {
+      width: 100%;
+      background: var(--red);
+      color: var(--white);
+      border: none;
+      font-family: var(--label);
+      font-size: 0.85rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      padding: 18px 32px;
+      cursor: pointer;
+      box-shadow: 3px 3px 0 var(--brown);
+      transition: transform 0.15s, box-shadow 0.15s;
+      margin-top: 8px;
+    }
+    .btn-submit:hover { transform: translate(-2px,-2px); box-shadow: 5px 5px 0 var(--brown); }
+    .btn-submit:disabled { opacity: 0.6; cursor: not-allowed; transform: none; }
+
+    .form-fine {
+      font-size: 0.78rem;
+      font-style: italic;
+      color: var(--ink-lt);
+      margin-top: 14px;
+      text-align: center;
+    }
+
+    /* SUCCESS */
+    .success-state {
+      display: none;
+      text-align: center;
+      padding: 80px 40px;
+    }
+    .success-icon { font-size: 3rem; margin-bottom: 24px; }
+    .success-headline {
+      font-family: var(--display);
+      font-size: 2.2rem;
+      color: var(--ink);
+      margin-bottom: 8px;
+    }
+    .success-script {
+      font-family: var(--script);
+      font-size: 1.6rem;
+      color: var(--red);
+      display: block;
+      margin-bottom: 20px;
+    }
+    .success-body {
+      font-size: 0.98rem;
+      font-style: italic;
+      color: var(--ink-mid);
+      line-height: 1.8;
+      max-width: 440px;
+      margin: 0 auto 32px;
+    }
+    .btn-home {
+      display: inline-block;
+      background: var(--red);
+      color: var(--white);
+      font-family: var(--label);
+      font-size: 0.78rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      padding: 14px 32px;
+      box-shadow: 3px 3px 0 var(--brown);
+    }
+
+    @media (max-width: 640px) {
+      nav { padding: 0 24px; }
+      .page-wrap { padding: 48px 24px; }
+      .request-types { grid-template-columns: 1fr; }
+      .form-row { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-logo-wrap">
+    <div>
+      <span class="nav-logo-text">Rise 'n Shine</span>
+      <span class="nav-logo-sub">Charlotte, Vermont · Est. 1990</span>
+    </div>
+  </div>
+  <a href="index.html" class="nav-back">← Back to Home</a>
+</nav>
+
+<div class="page-wrap">
+  <div id="formState">
+    <span class="page-opener">No fuss, we promise.</span>
+    <h1 class="page-headline">Manage your delivery.</h1>
+    <p class="page-sub">Need to skip a week, change your order, or cancel entirely? Just let us know below and we'll take care of it before your next delivery.</p>
+
+    <!-- Request type selector -->
+    <div class="request-types">
+      <div class="request-type selected" onclick="selectType(this, 'Skip a week')">
+        <span class="request-type-icon">📅</span>
+        <div class="request-type-name">Skip a Week</div>
+        <div class="request-type-desc">Pause one delivery</div>
+      </div>
+      <div class="request-type" onclick="selectType(this, 'Change my order')">
+        <span class="request-type-icon">🥛</span>
+        <div class="request-type-name">Change My Order</div>
+        <div class="request-type-desc">Different size or type</div>
+      </div>
+      <div class="request-type" onclick="selectType(this, 'Cancel my delivery')">
+        <span class="request-type-icon">🚪</span>
+        <div class="request-type-name">Cancel</div>
+        <div class="request-type-desc">Stop deliveries</div>
+      </div>
+    </div>
+
+    <form id="manageForm" onsubmit="handleSubmit(event)">
+      <input type="hidden" name="requestType" id="requestTypeInput" value="Skip a week"/>
+
+      <div class="form-row">
+        <div class="form-group">
+          <label class="form-label">First Name</label>
+          <input type="text" name="firstName" class="form-input" placeholder="Jane" required/>
+        </div>
+        <div class="form-group">
+          <label class="form-label">Last Name</label>
+          <input type="text" name="lastName" class="form-input" placeholder="Smith" required/>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label class="form-label">Email Address</label>
+        <input type="email" name="email" class="form-input" placeholder="jane@example.com" required/>
+      </div>
+
+      <div class="form-divider">
+        <div class="form-divider-line"></div>
+        <span class="form-divider-text">What do you need?</span>
+        <div class="form-divider-line"></div>
+      </div>
+
+      <!-- Skip a week fields -->
+      <div id="skipFields">
+        <div class="form-group">
+          <label class="form-label">Which delivery week do you want to skip?</label>
+          <input type="text" name="skipWeek" class="form-input" placeholder="e.g. week of March 10"/>
+        </div>
+      </div>
+
+      <!-- Change order fields -->
+      <div id="changeFields" style="display:none;">
+        <div class="form-group">
+          <label class="form-label">What would you like to change to?</label>
+          <select name="newPlan" class="form-select">
+            <option value="">Select a plan...</option>
+            <option value="The Quart — $9 per delivery">The Quart — $9 per delivery</option>
+            <option value="The Half Gallon — $14 per delivery">The Half Gallon — $14 per delivery</option>
+            <option value="The Family — $22 per delivery">The Family — $22 per delivery</option>
+            <option value="The Household — $38 per delivery">The Household — $38 per delivery</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label class="form-label">Milk type preference</label>
+          <select name="milkType" class="form-select">
+            <option value="">No preference</option>
+            <option value="Whole">Whole</option>
+            <option value="2%">2%</option>
+            <option value="Skim">Skim</option>
+          </select>
+        </div>
+      </div>
+
+      <!-- Cancel fields -->
+      <div id="cancelFields" style="display:none;">
+        <div class="form-group">
+          <label class="form-label">When should we stop deliveries?</label>
+          <select name="cancelTiming" class="form-select">
+            <option value="After my next delivery">After my next delivery</option>
+            <option value="Immediately">Immediately</option>
+            <option value="At the end of the month">At the end of the month</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label class="form-label">Anything you'd like us to know? (optional)</label>
+          <textarea name="cancelReason" class="form-textarea" placeholder="We'd love to know how we did, but no pressure..."></textarea>
+        </div>
+      </div>
+
+      <div class="form-group" style="margin-top: 8px;">
+        <label class="form-label">Anything else? (optional)</label>
+        <textarea name="notes" class="form-textarea" placeholder="Any other details..."></textarea>
+      </div>
+
+      <button type="submit" class="btn-submit" id="submitBtn">Send My Request →</button>
+      <p class="form-fine">We'll confirm your change before your next delivery. No phone calls, no hassle.</p>
+    </form>
+  </div>
+
+  <div class="success-state" id="successState">
+    <div class="success-icon">✓</div>
+    <h2 class="success-headline">Got it.</h2>
+    <span class="success-script">We'll take care of it.</span>
+    <p class="success-body">We've received your request and will confirm the change before your next delivery. Thanks for being a Rise 'n Shine customer.</p>
+    <a href="index.html" class="btn-home">Back to Home</a>
+  </div>
+</div>
+
+<script>
+  let currentType = 'Skip a week';
+
+  function selectType(el, type) {
+    document.querySelectorAll('.request-type').forEach(t => t.classList.remove('selected'));
+    el.classList.add('selected');
+    currentType = type;
+    document.getElementById('requestTypeInput').value = type;
+
+    document.getElementById('skipFields').style.display = type === 'Skip a week' ? 'block' : 'none';
+    document.getElementById('changeFields').style.display = type === 'Change my order' ? 'block' : 'none';
+    document.getElementById('cancelFields').style.display = type === 'Cancel my delivery' ? 'block' : 'none';
+  }
+
+  function handleSubmit(e) {
+    e.preventDefault();
+    const btn = document.getElementById('submitBtn');
+    btn.textContent = 'Sending...';
+    btn.disabled = true;
+
+    const form = document.getElementById('manageForm');
+    const data = {
+      requestType: currentType,
+      firstName:   form.firstName.value,
+      lastName:    form.lastName.value,
+      email:       form.email.value,
+      notes:       form.notes.value,
+    };
+
+    if (currentType === 'Skip a week') data.skipWeek = form.skipWeek.value;
+    if (currentType === 'Change my order') { data.newPlan = form.newPlan.value; data.milkType = form.milkType.value; }
+    if (currentType === 'Cancel my delivery') { data.cancelTiming = form.cancelTiming.value; data.cancelReason = form.cancelReason.value; }
+
+    fetch('https://formspree.io/f/xdalvekb', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+      body: JSON.stringify(data)
+    })
+    .then(res => res.json())
+    .then(() => {
+      document.getElementById('formState').style.display = 'none';
+      document.getElementById('successState').style.display = 'block';
+    })
+    .catch(() => {
+      btn.textContent = 'Something went wrong. Try again.';
+      btn.disabled = false;
+      setTimeout(() => { btn.textContent = 'Send My Request →'; }, 3000);
+    });
+  }
+</script>
+</body>
+</html>
