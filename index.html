@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Rise 'n Shine Milk — Good Morning, Vermont</title>
+  <title>Rise 'n Shine Milk · Good Morning, Vermont</title>
   <link rel="preconnect" href="https://fonts.googleapis.com"/>
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
   <link href="https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Lora:ital,wght@0,400;0,600;1,400;1,600&family=Dancing+Script:wght@600;700&family=Oswald:wght@400;500&display=swap" rel="stylesheet"/>
@@ -320,8 +320,8 @@
     }
     .hero-badge {
       position: absolute;
-      top: 40px; right: 40px;
-      width: 110px; height: 110px;
+      top: 32px; right: 32px;
+      width: 138px; height: 138px;
       animation: spinBadge 20s linear infinite;
       z-index: 3;
     }
@@ -336,6 +336,7 @@
     }
     .ribbon-inner {
       display: inline-flex;
+      align-items: center;
       animation: marquee 22s linear infinite;
       white-space: nowrap;
     }
@@ -347,7 +348,11 @@
       color: var(--brown);
       padding: 0 28px;
     }
-    .ribbon-star { color: var(--red); }
+    .ribbon-star {
+      color: var(--red);
+      font-size: 0.72rem;
+      line-height: 1;
+    }
 
     /* ── INTRO LETTER ────────────────────────────────────── */
     #letter {
@@ -469,11 +474,12 @@
     }
     .how-steps {
       display: grid;
-      grid-template-columns: repeat(4, 1fr);
+      grid-template-columns: repeat(6, 1fr);
       gap: 0;
-      max-width: 1100px;
+      max-width: 1320px;
       margin: 0 auto;
       position: relative;
+      align-items: start;
     }
     .how-steps::before {
       content: '';
@@ -482,7 +488,7 @@
       height: 2px;
       background: repeating-linear-gradient(90deg, var(--gold) 0, var(--gold) 8px, transparent 8px, transparent 16px);
     }
-    .how-step { text-align: center; padding: 0 24px; }
+    .how-step { text-align: center; padding: 0 16px; }
     .how-step-num {
       width: 52px; height: 52px;
       border-radius: 50%;
@@ -500,6 +506,11 @@
       font-size: 1.05rem;
       color: var(--ink);
       margin-bottom: 10px;
+      min-height: 2.5em;
+      line-height: 1.25;
+      display: flex;
+      align-items: center;
+      justify-content: center;
     }
     .how-step-text {
       font-size: 0.88rem;
@@ -626,8 +637,8 @@
     /* ── FARM ────────────────────────────────────────────── */
     #farm {
       display: grid;
-      grid-template-columns: 1fr 1fr;
-      min-height: 560px;
+      grid-template-columns: 1fr;
+      min-height: 420px;
     }
     .farm-left {
       background: var(--paper-dk);
@@ -671,7 +682,6 @@
       background: var(--blue-pale);
       display: flex; align-items: center; justify-content: center;
       position: relative; overflow: hidden;
-      border-left: 3px solid var(--paper-dkr);
     }
     .farm-right::before {
       content: '';
@@ -1068,7 +1078,7 @@
     }
     .footer-top {
       display: grid;
-      grid-template-columns: 2fr 1fr 1fr 1fr;
+      grid-template-columns: 2fr 1fr 1fr;
       gap: 48px;
       padding-bottom: 48px;
       border-bottom: 1px solid rgba(255,254,249,0.1);
@@ -1181,12 +1191,11 @@
     </div>
   </div>
   <ul class="nav-links">
+    <li><a href="#letter">Our Story</a></li>
     <li><a href="#how">How It Works</a></li>
     <li><a href="#farm">Our Farm</a></li>
-    <li><a href="#glass">Why Glass</a></li>
-    <li><a href="#pricing">Delivery Options</a></li>
-    <li><a href="manage.html">Manage Delivery</a></li>
-    <li><a href="signup.html" class="nav-cta">First Delivery Free</a></li>
+    <li><a href="#compare">How We Compare</a></li>
+    <li><a href="#delivery-area">Delivery Area</a></li>
   </ul>
   <button class="hamburger" id="hamburger" aria-label="Open menu">
     <span></span><span></span><span></span>
@@ -1196,35 +1205,32 @@
 <!-- Mobile menu -->
 <div class="mobile-menu" id="mobileMenu">
   <button class="mobile-menu-close" id="menuClose" aria-label="Close menu">&times;</button>
+  <a href="#letter" class="mobile-link">Our Story</a>
   <a href="#how" class="mobile-link">How It Works</a>
   <a href="#farm" class="mobile-link">Our Farm</a>
-  <a href="#glass" class="mobile-link">Why Glass</a>
-  <a href="#pricing" class="mobile-link">Delivery Options</a>
-  <a href="manage.html" class="mobile-link">Manage Delivery</a>
-  <a href="signup.html" class="mobile-cta">First Delivery Free</a>
+  <a href="#compare" class="mobile-link">How We Compare</a>
+  <a href="#delivery-area" class="mobile-link">Delivery Area</a>
 </div>
 
 <!-- ── HERO ──────────────────────────────────────────────── -->
 <section id="hero">
   <div class="hero-left">
-    <div class="hero-stamp">Charlotte, Vermont · Est. 1990</div>
+    <div class="hero-stamp">Charlotte, Vermont · Est. 2004</div>
     <h1 class="hero-headline">
-      Rise 'N Shine,<br/>
-      <span class="hero-headline-script">neighbor.</span>
-      It's the milkman.
+      Rise 'n Shine...<br/>
+      it's the milkman.
     </h1>
     <p class="hero-sub">
-      Fresh milk from a real New England farm, in glass bottles that come back to us — left on your doorstep every week, just like it used to be.
+      Fresh milk in glass bottles, from the same family farm for over 20 years. Delivered to your doorstep every week, just like the old days.
     </p>
     <div class="hero-actions">
-      <a href="signup.html" class="btn-red">Get Your First Delivery Free</a>
       <a href="#how" class="btn-outline">See how it works</a>
     </div>
     <div class="hero-promise">
-      <span class="hero-promise-item">No commitment</span>
-      <span class="hero-promise-item">Stop anytime</span>
+      <span class="hero-promise-item">No contract</span>
+      <span class="hero-promise-item">Order up until midnight the day before delivery</span>
       <span class="hero-promise-item">Real glass bottles</span>
-      <span class="hero-promise-item">Real farm milk</span>
+      <span class="hero-promise-item">Farm fresh milk</span>
     </div>
   </div>
 
@@ -1232,18 +1238,18 @@
     <div class="hero-right-stripe"></div>
 
     <!-- Rotating vintage badge -->
-    <svg class="hero-badge" viewBox="0 0 110 110" xmlns="http://www.w3.org/2000/svg">
+    <svg class="hero-badge" viewBox="0 0 138 138" xmlns="http://www.w3.org/2000/svg">
       <defs>
-        <path id="badgeCircle" d="M 55,55 m -38,0 a 38,38 0 1,1 76,0 a 38,38 0 1,1 -76,0"/>
+        <path id="badgeCircle" d="M 69,69 m -47.5,0 a 47.5,47.5 0 1,1 95,0 a 47.5,47.5 0 1,1 -95,0"/>
       </defs>
-      <circle cx="55" cy="55" r="50" fill="none" stroke="#c9972a" stroke-width="2"/>
-      <circle cx="55" cy="55" r="44" fill="none" stroke="#c9972a" stroke-width="1" stroke-dasharray="4 3"/>
-      <text font-family="'Oswald',sans-serif" font-size="9" fill="#c9972a" letter-spacing="3">
-        <textPath href="#badgeCircle">★ REAL FARM MILK ★ REUSABLE GLASS ★ NEW ENGLAND ★</textPath>
+      <circle cx="69" cy="69" r="62.5" fill="none" stroke="#c9972a" stroke-width="2"/>
+      <circle cx="69" cy="69" r="55" fill="none" stroke="#c9972a" stroke-width="1" stroke-dasharray="5 4"/>
+      <text font-family="'Oswald',sans-serif" font-size="9.5" fill="#c9972a" letter-spacing="2">
+        <textPath href="#badgeCircle" startOffset="25%" text-anchor="middle">🐄 FARM FRESH MILK 🐄</textPath>
       </text>
-      <text x="55" y="49" text-anchor="middle" font-family="'Abril Fatface',serif" font-size="11" fill="#c0392b">RISE 'N</text>
-      <text x="55" y="63" text-anchor="middle" font-family="'Abril Fatface',serif" font-size="11" fill="#c0392b">SHINE</text>
-      <text x="55" y="73" text-anchor="middle" font-family="'Oswald',sans-serif" font-size="6.5" fill="#5c3d1e" letter-spacing="1.5">SINCE ALWAYS</text>
+      <text x="69" y="61" text-anchor="middle" font-family="'Abril Fatface',serif" font-size="14" fill="#c0392b">RISE 'n</text>
+      <text x="69" y="79" text-anchor="middle" font-family="'Abril Fatface',serif" font-size="14" fill="#c0392b">SHINE</text>
+      <text x="69" y="91" text-anchor="middle" font-family="'Oswald',sans-serif" font-size="8" fill="#5c3d1e" letter-spacing="1.5">Est. 2004</text>
     </svg>
 
     <!-- Vintage porch + bottles illustration -->
@@ -1337,21 +1343,17 @@
 <!-- ── RIBBON ─────────────────────────────────────────────── -->
 <div class="ribbon">
   <div class="ribbon-inner">
-    <span class="ribbon-item">Real Farm Milk</span><span class="ribbon-star">★</span>
-    <span class="ribbon-item">Real Glass Bottles</span><span class="ribbon-star">★</span>
-    <span class="ribbon-item">New Hampshire Farm</span><span class="ribbon-star">★</span>
+    <span class="ribbon-item">Farm Fresh Milk</span><span class="ribbon-star">★</span>
+    <span class="ribbon-item">Reusable Glass Bottles</span><span class="ribbon-star">★</span>
+    <span class="ribbon-item">Family Farm</span><span class="ribbon-star">★</span>
     <span class="ribbon-item">Weekly Delivery</span><span class="ribbon-star">★</span>
-    <span class="ribbon-item">Pasture-Raised</span><span class="ribbon-star">★</span>
-    <span class="ribbon-item">First Delivery Free</span><span class="ribbon-star">★</span>
-    <span class="ribbon-item">Stop Anytime</span><span class="ribbon-star">★</span>
+    <span class="ribbon-item">Order up until midnight the day before delivery</span><span class="ribbon-star">★</span>
     <span class="ribbon-item">Try The Chocolate</span><span class="ribbon-star">★</span>
-    <span class="ribbon-item">Real Farm Milk</span><span class="ribbon-star">★</span>
-    <span class="ribbon-item">Real Glass Bottles</span><span class="ribbon-star">★</span>
-    <span class="ribbon-item">New Hampshire Farm</span><span class="ribbon-star">★</span>
+    <span class="ribbon-item">Farm Fresh Milk</span><span class="ribbon-star">★</span>
+    <span class="ribbon-item">Reusable Glass Bottles</span><span class="ribbon-star">★</span>
+    <span class="ribbon-item">Family Farm</span><span class="ribbon-star">★</span>
     <span class="ribbon-item">Weekly Delivery</span><span class="ribbon-star">★</span>
-    <span class="ribbon-item">Pasture-Raised</span><span class="ribbon-star">★</span>
-    <span class="ribbon-item">First Delivery Free</span><span class="ribbon-star">★</span>
-    <span class="ribbon-item">Stop Anytime</span><span class="ribbon-star">★</span>
+    <span class="ribbon-item">Order up until midnight the day before delivery</span><span class="ribbon-star">★</span>
     <span class="ribbon-item">Try The Chocolate</span><span class="ribbon-star">★</span>
   </div>
 </div>
@@ -1360,14 +1362,14 @@
 <section id="letter">
   <span class="letter-opener reveal">A note from us to you.</span>
   <p class="letter-body reveal">
-    There's something about finding fresh milk on your doorstep that just feels right. Real milk, from a real farm, in glass bottles that come back to us each week to be washed and refilled. No plastic, no mystery, no middleman. Just good milk, the way it was always meant to be. We're glad you found us.
+    There's something about finding fresh milk on your doorstep that just feels right. Real milk, from a real farm, in glass bottles that come back to us each week to be washed and refilled. No plastic, no mystery. Just good milk, the way it was always meant to be. These days, we deliver glass bottle milk and over 200 other organic, natural, and local products right to your doorstep. We're glad you found us.
   </p>
   <div class="letter-divider reveal">
     <div class="letter-divider-line"></div>
     <span class="letter-divider-icon">🥛</span>
     <div class="letter-divider-line"></div>
   </div>
-  <span class="letter-sign reveal">— The Rise 'n Shine family, Charlotte, Vermont</span>
+  <span class="letter-sign reveal">The Rise 'n Shine family, Charlotte, Vermont</span>
 </section>
 
 <!-- ── PILLARS ────────────────────────────────────────────── -->
@@ -1377,30 +1379,30 @@
     <div class="pillar reveal">
       <div class="pillar-corner"></div>
       <div class="pillar-icon-wrap">🍶</div>
-      <h3 class="pillar-title">Real Glass Bottles</h3>
+      <h3 class="pillar-title">Returnable Glass Bottles</h3>
       <span class="pillar-sub">Returned, washed, refilled. Always.</span>
-      <p class="pillar-text">Our bottles come back to us every week, get properly cleaned, and go right back out. Same bottles, over and over. Not a gimmick. Just the way things should work.</p>
+      <p class="pillar-text">Just leave the empty milk bottles in your milkbox on the porch, and we'll take care of the rest. The bottles are washed, sanitized, and refilled over and over again.</p>
     </div>
     <div class="pillar reveal">
       <div class="pillar-corner"></div>
       <div class="pillar-icon-wrap">🥛</div>
-      <h3 class="pillar-title">Real Farm Milk</h3>
+      <h3 class="pillar-title">Farm Fresh Milk</h3>
       <span class="pillar-sub">One farm. One source. No mystery.</span>
-      <p class="pillar-text">We know exactly where our milk comes from. One pasture-based farm in New Hampshire, run by the same family. We know the people, and we stand behind what is in every bottle.</p>
+      <p class="pillar-text">We know exactly where our milk comes from. One farm, run by the same family for over 20 years. We know them, we know the cows, and we stand behind what is in every bottle.</p>
     </div>
     <div class="pillar reveal">
       <div class="pillar-corner"></div>
       <div class="pillar-icon-wrap">🚪</div>
       <h3 class="pillar-title">Delivered to Your Door</h3>
       <span class="pillar-sub">Every week. Without fail.</span>
-      <p class="pillar-text">Cold milk on your doorstep before you are up for the day. No errand, no parking lot, no forgetting. The milkman shows up so you do not have to think about it.</p>
+      <p class="pillar-text">Cold milk and more than 200 other products available, delivered right to your doorstep for one flat delivery charge. No errands, no parking hassles, no forgetting. The milkman shows up so you do not have to think about it.</p>
     </div>
     <div class="pillar reveal">
       <div class="pillar-corner"></div>
-      <div class="pillar-icon-wrap">🌾</div>
-      <h3 class="pillar-title">Organically Raised</h3>
-      <span class="pillar-sub">No pesticides. No hormones. No shortcuts.</span>
-      <p class="pillar-text">Our cows graze on real pasture. No synthetic pesticides, no growth hormones, no corners cut. The way farming was always meant to be done.</p>
+      <div class="pillar-icon-wrap">🌱</div>
+      <h3 class="pillar-title">Reusing Beats Recycling</h3>
+      <span class="pillar-sub">Returnables, not throwaways.</span>
+      <p class="pillar-text">Reusing is better than recycling. Because our bottles come back to be washed and refilled, the typical Rise 'n Shine customer fills about 12 fewer recycling bins a year than someone who does not use returnables.</p>
     </div>
   </div>
 </section>
@@ -1412,7 +1414,6 @@
     <span style="font-family:'Dancing Script',cursive;font-size:1.4rem;color:#e4b84a;display:block;margin-bottom:10px;">One more thing.</span>
     <h2 style="font-family:'Abril Fatface',serif;font-size:clamp(2rem,4vw,3.2rem);color:#fffef9;line-height:1.1;margin-bottom:20px;">The chocolate milk.<br>Trust us on this one.</h2>
     <p style="font-family:'Lora',serif;font-size:1rem;font-style:italic;color:rgba(255,254,249,0.7);line-height:1.85;margin-bottom:32px;">It comes from the same farm, in the same glass bottle, delivered the same way. But there is something about chocolate milk this fresh, this cold, straight from the bottle on your doorstep that is hard to explain. Just add it to your first order. You will not regret it.</p>
-    <a href="signup.html" style="display:inline-block;background:var(--gold, #c9972a);color:#1e1a14;font-family:'Oswald',sans-serif;font-size:0.82rem;letter-spacing:0.12em;text-transform:uppercase;padding:16px 40px;box-shadow:3px 3px 0 #5c3d1e;transition:transform .15s,box-shadow .15s;text-decoration:none;">Try It Free →</a>
   </div>
 </section>
 
@@ -1423,83 +1424,44 @@
   <div class="how-steps">
     <div class="how-step reveal">
       <div class="how-step-num">1</div>
-      <h4 class="how-step-title">Tell us what you'd like</h4>
-      <p class="how-step-text">Pick your milk and how much you need each week. Whole, 2%, skim — your choice. Takes about two minutes to set up.</p>
+      <h4 class="how-step-title">Sign up</h4>
+      <p class="how-step-text">Create your account and tell us where to deliver. It only takes a couple of minutes. <a href="https://risenshine.dairy.delivery/Signup/InfoAddress" style="color:var(--red);border-bottom:2px solid var(--gold);">Sign up here</a>.</p>
     </div>
     <div class="how-step reveal">
       <div class="how-step-num">2</div>
-      <h4 class="how-step-title">We show up every week</h4>
-      <p class="how-step-text">Cold glass bottles land on your doorstep before you're up for the day. We'll send you a friendly heads-up the night before.</p>
+      <h4 class="how-step-title">Set up a standing order</h4>
+      <p class="how-step-text">Set up a standing order so we know what to keep on the trucks. You are not obligated to take it every week. For example, it might be two half gallons of whole milk, a quart of chocolate, and a dozen eggs. You can add to it or change it right up until the night before delivery.</p>
     </div>
     <div class="how-step reveal">
       <div class="how-step-num">3</div>
-      <h4 class="how-step-title">Leave the empties out</h4>
-      <p class="how-step-text">Rinse them and set them out. We pick them up, wash them properly, and they go right back on the route. The whole loop, closed.</p>
+      <h4 class="how-step-title">We'll remind you</h4>
+      <p class="how-step-text">Every week we'll send a reminder email the day before delivery, along with any specials that are available. Just log in online, or use the app if that's easier, to make changes or skip a delivery.</p>
     </div>
     <div class="how-step reveal">
       <div class="how-step-num">4</div>
+      <h4 class="how-step-title">Leave the empties out</h4>
+      <p class="how-step-text">We'll provide you with a Rise 'n Shine milkbox while you're a customer. Just rinse your bottles once they're empty and place them back in the milkbox. There's a $1.50 deposit on each bottle, and you'll see a credit on your bill for each bottle you return.</p>
+    </div>
+    <div class="how-step reveal">
+      <div class="how-step-num">5</div>
       <h4 class="how-step-title">You're always in charge</h4>
-      <p class="how-step-text">Skip a week, change your order, stop entirely — you can do it all from your account in under a minute. No runaround, no phone calls.</p>
+      <p class="how-step-text">Skip a week, change your order, or stop entirely. You can do it all from your account in under a minute. No runaround, no phone calls.</p>
+    </div>
+    <div class="how-step reveal">
+      <div class="how-step-num">6</div>
+      <h4 class="how-step-title">No surprises</h4>
+      <p class="how-step-text">You'll see the same milkman every week, someone you'll come to recognize who knows your standing order. No surprises, no rotating drivers, just exactly what you ordered.</p>
     </div>
   </div>
   <p class="how-note reveal">That's genuinely it. No fuss at all. 🥛</p>
 </section>
 
-<!-- ── PRICING ─────────────────────────────────────────────── -->
-<section id="pricing">
-  <p class="pricing-label reveal">Pick your delivery</p>
-  <p class="pricing-sub reveal">Priced per delivery. No monthly bills, no fine print.</p>
-  <div class="pricing-cards">
-    <a href="signup.html?plan=quart" class="price-card reveal" style="display:block;text-decoration:none;">
-      <div class="price-card-name">The Quart</div>
-      <div class="price-card-desc">1 quart · any variety</div>
-      <div class="price-card-amount">$9</div>
-      <div class="price-card-per">per delivery</div>
-    </a>
-    <a href="signup.html?plan=halfgallon" class="price-card reveal" style="display:block;text-decoration:none;">
-      <div class="price-card-name">The Half Gallon</div>
-      <div class="price-card-desc">½ gallon · any variety</div>
-      <div class="price-card-amount">$14</div>
-      <div class="price-card-per">per delivery</div>
-    </a>
-    <a href="signup.html?plan=family" class="price-card active popular reveal" style="display:block;text-decoration:none;">
-      <div class="price-card-name">The Family</div>
-      <div class="price-card-desc">1 gallon · any variety</div>
-      <div class="price-card-amount">$22</div>
-      <div class="price-card-per">per delivery</div>
-    </a>
-    <a href="signup.html?plan=household" class="price-card reveal" style="display:block;text-decoration:none;">
-      <div class="price-card-name">The Household</div>
-      <div class="price-card-desc">2 gallons · mix &amp; match</div>
-      <div class="price-card-amount">$38</div>
-      <div class="price-card-per">per delivery</div>
-    </a>
-  </div>
-  <div class="pricing-cta reveal">
-    <a href="signup.html" class="btn-gold">Start With a Free Delivery →</a>
-    <p class="pricing-fine">Your first delivery is always on us. After that, change or stop whenever you like.</p>
-  </div>
-</section>
+
 
 <!-- ── FARM ───────────────────────────────────────────────── -->
 <section id="farm">
-  <div class="farm-left">
-    <p class="farm-label reveal">Behind the bottle</p>
-    <h2 class="farm-headline reveal">A real farm.<br/>Real people.<br/>Real close.</h2>
-    <div class="farm-body reveal">
-      <p>Our milk comes from a pasture-based dairy farm in New Hampshire — the kind of place where the same family has been doing this for a long time and isn't interested in cutting corners.</p>
-      <p>The cows graze on open pasture all season. And the farm is close enough that we can drive out there ourselves when we need to see something firsthand.</p>
-      <p>We picked a regional partner on purpose. Proximity means accountability. And accountability means you can trust what's in the bottle.</p>
-    </div>
-    <div class="farm-badges reveal">
-      <span class="farm-badge">Pasture-Based</span>
-      <span class="farm-badge">No Hormones</span>
-      <span class="farm-badge">Family Owned</span>
-      <span class="farm-badge">Single Source</span>
-    </div>
-  </div>
   <div class="farm-right">
-    <svg viewBox="0 0 500 420" xmlns="http://www.w3.org/2000/svg" width="100%" style="position:relative;z-index:2;max-width:500px;">
+    <svg viewBox="0 0 500 420" xmlns="http://www.w3.org/2000/svg" width="100%" style="position:relative;z-index:2;max-width:600px;">
       <defs>
         <linearGradient id="skyG" x1="0" y1="0" x2="0" y2="1">
           <stop offset="0%" stop-color="#ddeaf5"/>
@@ -1583,42 +1545,11 @@
         <path d="M10 20 Q2 18 4 26" stroke="#4a3f30" stroke-width="1.5" fill="none"/>
         <ellipse cx="52" cy="8" rx="4" ry="3" fill="#e8dcc8" stroke="#4a3f30" stroke-width="1"/>
       </g>
-      <!-- Stamp badge -->
-      <rect x="18" y="358" width="200" height="48" rx="2" fill="rgba(192,57,43,0.9)"/>
-      <text x="118" y="378" text-anchor="middle" font-family="'Abril Fatface',serif" font-size="13" fill="white">NEW HAMPSHIRE</text>
-      <text x="118" y="396" text-anchor="middle" font-family="'Oswald',sans-serif" font-size="9" fill="rgba(255,255,255,0.8)" letter-spacing="3">PASTURE-BASED FARM</text>
     </svg>
   </div>
 </section>
 
-<!-- ── WHY GLASS ──────────────────────────────────────────── -->
-<section id="glass">
-  <div class="glass-inner">
-    <p class="glass-label reveal">About those bottles</p>
-    <h2 class="glass-headline reveal">The glass isn't a nice touch.<br/>It's the whole point.</h2>
-    <p class="glass-body reveal">
-      We use glass because it comes back. You return it, we wash it, it goes right back out on the truck. The same bottle might make forty trips before we retire it. That's not nostalgia talking — that's just a system that works. Plastic doesn't do that.
-    </p>
-    <div class="glass-stats reveal">
-      <div class="glass-stat">
-        <span class="glass-stat-num">40+</span>
-        <span class="glass-stat-label">Trips per bottle before retirement</span>
-      </div>
-      <div class="glass-stat">
-        <span class="glass-stat-num">0</span>
-        <span class="glass-stat-label">Single-use containers in our delivery</span>
-      </div>
-      <div class="glass-stat">
-        <span class="glass-stat-num">100%</span>
-        <span class="glass-stat-label">Food-grade sanitized between each fill</span>
-      </div>
-      <div class="glass-stat">
-        <span class="glass-stat-num">1</span>
-        <span class="glass-stat-label">Farm. You know exactly where it comes from.</span>
-      </div>
-    </div>
-  </div>
-</section>
+
 
 <!-- ── COMPARE ────────────────────────────────────────────── -->
 <section id="compare">
@@ -1640,18 +1571,18 @@
       </tr>
       <tr>
         <td>Where it's from</td>
-        <td class="td-rns"><span class="check">✓</span>One pasture-based farm in New Hampshire — we know the people</td>
+        <td class="td-rns"><span class="check">✓</span>One family farm, and we know the cows</td>
         <td class="td-gro"><span class="cross">—</span>Usually multiple sources, rarely named on the label</td>
       </tr>
       <tr>
         <td>Getting it</td>
-        <td class="td-rns"><span class="check">✓</span>On your doorstep weekly, no errand needed</td>
-        <td class="td-gro"><span class="cross">—</span>You drive, you park, you hope you remembered to go</td>
+        <td class="td-rns"><span class="check">✓</span>On your doorstep weekly. No fuss.</td>
+        <td class="td-gro"><span class="cross">—</span>You drive, you park, you hope you remember everything on your list</td>
       </tr>
       <tr>
         <td>Flexibility</td>
         <td class="td-rns"><span class="check">✓</span>Skip or stop any week, no calls, no fees, no fuss</td>
-        <td class="td-gro"><span class="cross">—</span>No standing order — you remember or you go without</td>
+        <td class="td-gro"><span class="cross">—</span>No standing order, so you remember or you go without</td>
       </tr>
       <tr>
         <td>Freshness</td>
@@ -1660,7 +1591,7 @@
       </tr>
       <tr>
         <td>What you pay for</td>
-        <td class="td-rns"><span class="check">✓</span>The milk, the glass, the delivery — honest and transparent</td>
+        <td class="td-rns"><span class="check">✓</span>The milk, the glass, the delivery, all honest and transparent</td>
         <td class="td-gro"><span class="cross">—</span>Shelf space, packaging, marketing, and middlemen</td>
       </tr>
     </tbody>
@@ -1670,10 +1601,11 @@
 <!-- ── DELIVERY MAP ──────────────────────────────────────── -->
 <section id="delivery-area">
   <p class="reviews-label reveal">Our Delivery Area</p>
-  <p class="how-sub reveal">We deliver weekly throughout Chittenden County, Vermont.</p>
+  <p class="how-sub reveal">We deliver weekly to the following towns: Charlotte, Shelburne, Hinesburg*, Richmond*, South Burlington, Burlington, Williston, Colchester*, Westford*, Jericho, North Ferrisburgh*.</p>
+  <p class="reveal" style="font-size:0.82rem;font-style:italic;color:var(--ink-lt);margin-top:6px;">*limited delivery area</p>
   <div class="map-wrap reveal">
     <iframe
-      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d185447.23456789!2d-73.21!3d44.47!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4cca7b0fb5b4a1a1%3A0x1234567890abcdef!2sChittenden%20County%2C%20VT!5e0!3m2!1sen!2sus!4v1234567890"
+      src="https://maps.google.com/maps?q=Chittenden+County,+Vermont&z=10&output=embed"
       width="100%"
       height="480"
       style="border: 3px solid #e4d9c3; filter: sepia(20%) contrast(95%);"
@@ -1682,30 +1614,10 @@
       referrerpolicy="no-referrer-when-downgrade">
     </iframe>
   </div>
-  <p class="how-note reveal">Not sure if we deliver to you? <a href="#cta" style="color: var(--red); border-bottom: 2px solid var(--gold);">Drop us your email</a> and we will let you know.</p>
+  <p class="how-note reveal">Not sure if we deliver to you? <a href="https://risenshine.dairy.delivery/Signup/InfoAddress" style="color: var(--red); border-bottom: 2px solid var(--gold);">Sign up</a> and we will let you know.</p>
 </section>
 
-<!-- ── CTA ────────────────────────────────────────────────── -->
-<section id="cta">
-  <div class="cta-corner-stamp">
-    <div class="cta-corner-stamp-inner">Rise 'n Shine<br/>Charlotte<br/>Vermont</div>
-  </div>
-  <div class="cta-deco">🥛</div>
 
-  <p class="cta-postmark reveal">Charlotte, VT · Weekly Delivery</p>
-  <h2 class="cta-headline reveal">
-    Your first bottle
-    <span class="cta-script">is on us.</span>
-  </h2>
-  <p class="cta-body reveal">
-    Leave us your email. We'll get you set up, let you know when to expect your first delivery, and make sure everything is just right before we ask a single thing of you.
-  </p>
-  <div class="cta-form reveal">
-    <input type="email" id="emailInput" placeholder="Your email address..."/>
-    <button onclick="handleSignup()">Claim My Free Delivery →</button>
-  </div>
-  <p class="cta-fine reveal">No commitment. Skip or stop whenever you like. First delivery is always free.</p>
-</section>
 
 <!-- ── FOOTER ─────────────────────────────────────────────── -->
 <footer>
@@ -1720,7 +1632,6 @@
       <ul class="footer-links">
         <li><a href="#letter">Our Story</a></li>
         <li><a href="#farm">The Farm</a></li>
-        <li><a href="#glass">Why Glass</a></li>
         <li><a href="#compare">How We Compare</a></li>
       </ul>
     </div>
@@ -1728,23 +1639,12 @@
       <div class="footer-col-label">Your Delivery</div>
       <ul class="footer-links">
         <li><a href="#how">How It Works</a></li>
-        <li><a href="#pricing">Delivery Options</a></li>
-        <li><a href="manage.html">Manage Your Schedule</a></li>
-        <li><a href="#">Give as a Gift</a></li>
-      </ul>
-    </div>
-    <div>
-      <div class="footer-col-label">Say Hello</div>
-      <ul class="footer-links">
-        <li><a href="/cdn-cgi/l/email-protection#47372233223524263535222e3528073e262f28286924282a"><span class="__cf_email__" data-cfemail="83f3e6f7e6f1e0e2f1f1e6eaf1ecc3fae2ebececade0ecee">[email&#160;protected]</span></a></li>
-        <li><a href="https://maps.google.com/?q=Charlotte,+Vermont" target="_blank">Charlotte, Vermont</a></li>
-        <li><a href="#" style="opacity:0.4;cursor:default;">Instagram — Coming Soon</a></li>
-        <li><a href="faq.html">FAQ</a></li>
+        <li><a href="#delivery-area">Delivery Area</a></li>
       </ul>
     </div>
   </div>
   <div class="footer-bottom">
-    <span class="footer-copy">© 1990 Rise 'n Shine · Charlotte, Vermont · All rights reserved</span>
+    <span class="footer-copy">© 2004 Rise 'n Shine · Charlotte, Vermont · All rights reserved</span>
     <span class="footer-heart">Made with care in Vermont 🥛</span>
   </div>
 </footer>
@@ -1767,25 +1667,6 @@
     document.querySelectorAll('.price-card').forEach(c => c.classList.remove('active'));
     el.classList.add('active');
   }
-
-  // Email signup
-  function handleSignup() {
-    const input = document.getElementById('emailInput');
-    const val = input.value.trim();
-    if (!val || !val.includes('@')) {
-      input.style.borderColor = '#c0392b';
-      input.placeholder = 'Please enter a valid email...';
-      setTimeout(() => {
-        input.style.borderColor = '';
-        input.placeholder = 'Your email address...';
-      }, 2000);
-      return;
-    }
-    window.location.href = 'signup.html?email=' + encodeURIComponent(val);
-  }
-  document.getElementById('emailInput').addEventListener('keydown', e => {
-    if (e.key === 'Enter') handleSignup();
-  });
 
   // Hamburger menu
   const hamburger = document.getElementById('hamburger');
